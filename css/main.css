@@ -6,6 +6,18 @@
 /* font-family: 'DM Sans', sans-serif;
 font-family: 'Poppins', sans-serif; */
 
+:root{
+    --black: #171718;
+    --black-border:#171718;
+    --white:#FFF;
+    --purple:#5C62EC ;
+
+    --dark-bg: var(--black);
+    --dark-border:var(--black-border);
+    --header-text:var(--white);
+    --accent: var(--purple);
+}
+
 html,body{
     font-family: 'DM Sans', sans-serif
 }
@@ -18,9 +30,9 @@ html,body{
 
 .nav{
     padding: 20px 0;
-    border-bottom: 1px solid #26292D;
-    background-color: #171718;
-    color: #FFF;
+    border-bottom: 1px solid var(--dark-border);
+    background-color: var(--dark-bg);
+    color: var(--header-text);
 }
 .nav-row{
     display: flex;
@@ -31,7 +43,7 @@ html,body{
     flex-wrap: wrap;
 }
 .logo{
-    color: inherit;
+    color: var(--header-text);
     font-size: 24px;
     font-family: 'Poppins', sans-serif;
 }
@@ -44,11 +56,29 @@ html,body{
     display: flex;
     align-items: center;
     column-gap: 40px;
-    
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .nav-list__item {
+
 }
 .nav-list__link {
-    color: #FFF;
+    color: var(--header-text);
+}
+.nav-list__link--active {
+    position: relative;
+}
+
+.nav-list__link--active::before {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    top: 100%;
+
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent);
 }
